@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- SLICK CSS -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/app.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- TOPBAR -->
+        <section class="topbar">
+            <p>Acompanhe as melhores promoções disponíveis aqui na Maeztra.</p>
+        </section>
+
+        <!-- HEADER -->
+        <section class="header">
+
+            <div class="header__container">
+
+                <!-- MENU MOBILE -->
+                <div class="menu__mobile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M23.0625 11.0625H0.9375C0.419719 11.0625 0 11.4822 0 12C0 12.5178 0.419719 12.9375 0.9375 12.9375H23.0625C23.5803 12.9375 24 12.5178 24 12C24 11.4822 23.5803 11.0625 23.0625 11.0625Z"
+                            fill="black" />
+                        <path
+                            d="M23.0625 3.5625H0.9375C0.419719 3.5625 0 3.98222 0 4.5C0 5.01778 0.419719 5.4375 0.9375 5.4375H23.0625C23.5803 5.4375 24 5.01778 24 4.5C24 3.98222 23.5803 3.5625 23.0625 3.5625Z"
+                            fill="black" />
+                        <path
+                            d="M23.0625 18.5625H0.9375C0.419719 18.5625 0 18.9822 0 19.5C0 20.0178 0.419719 20.4375 0.9375 20.4375H23.0625C23.5803 20.4375 24 20.0178 24 19.5C24 18.9822 23.5803 18.5625 23.0625 18.5625Z"
+                            fill="black" />
+                    </svg>
+                </div>
+
+                <!-- LOGO -->
+                <h1>
+                    <img src="data:image/png;base64,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"
+                        alt="Logo Maeztra">
+                </h1>
+
+                <!-- BUSCA -->
+                <div class="search">
+                    <form action="" id="search">
+                        <input type="text" name="searchForm" id="searchForm" placeholder="O que você busca?">
+                        <button type="submit">
+                            <span>
+                                Buscar
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- LINKS HEADER -->
+                <div class="header__right">
+                    <div class="search__mobile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M23.8535 22.4395L16.8817 15.4677C18.204 13.8351 19 11.7597 19 9.50004C19 4.26175 14.7383 0 9.49999 0C4.2617 0 0 4.26175 0 9.50004C0 14.7383 4.26175 19.0001 9.50004 19.0001C11.7597 19.0001 13.8351 18.204 15.4677 16.8817L22.4395 23.8536C22.6348 24.0488 22.9513 24.0488 23.1467 23.8536L23.8536 23.1466C24.0488 22.9513 24.0488 22.6347 23.8535 22.4395ZM9.50004 17.0001C5.3643 17.0001 2.00002 13.6358 2.00002 9.50004C2.00002 5.3643 5.3643 2.00002 9.50004 2.00002C13.6358 2.00002 17.0001 5.3643 17.0001 9.50004C17.0001 13.6358 13.6358 17.0001 9.50004 17.0001Z"
+                                fill="black" />
+                        </svg>
+                    </div>
+                    <div class="header__account">
+                        <a href="/account">
+                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.8 9.5C8.90312 9.5 8.47188 10 7 10C5.52812 10 5.1 9.5 4.2 9.5C1.88125 9.5 0 11.3813 0 13.7V14.5C0 15.3281 0.671875 16 1.5 16H12.5C13.3281 16 14 15.3281 14 14.5V13.7C14 11.3813 12.1187 9.5 9.8 9.5ZM12.5 14.5H1.5V13.7C1.5 12.2125 2.7125 11 4.2 11C4.65625 11 5.39687 11.5 7 11.5C8.61563 11.5 9.34062 11 9.8 11C11.2875 11 12.5 12.2125 12.5 13.7V14.5ZM7 9C9.48438 9 11.5 6.98438 11.5 4.5C11.5 2.01562 9.48438 0 7 0C4.51562 0 2.5 2.01562 2.5 4.5C2.5 6.98438 4.51562 9 7 9ZM7 1.5C8.65312 1.5 10 2.84687 10 4.5C10 6.15312 8.65312 7.5 7 7.5C5.34688 7.5 4 6.15312 4 4.5C4 2.84687 5.34688 1.5 7 1.5Z"
+                                    fill="#353535" />
+                            </svg>
+                            Minha Conta
+                        </a>
+                    </div>
+                    <div class="header__wishlist">
+                        <a href="/wishlist">
+                            <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.367 1.15404C14.3033 -0.581202 11.1148 -0.320559 9.14037 1.68961C7.16591 -0.320559 3.97749 -0.584772 1.91377 1.15404C-0.771215 3.41414 -0.378464 7.09885 1.5353 9.05189L7.79788 15.4323C8.15493 15.7965 8.63337 16 9.14037 16C9.65095 16 10.1258 15.8001 10.4829 15.4359L16.7454 9.05546C18.6556 7.10242 19.0555 3.41771 16.367 1.15404ZM15.5244 7.84865L9.26177 14.2291C9.17608 14.3147 9.10467 14.3147 9.01898 14.2291L2.7564 7.84865C1.45318 6.52044 1.18897 4.00683 3.01704 2.46797C4.40595 1.30043 6.54822 1.47538 7.89071 2.84287L9.14037 4.11752L10.39 2.84287C11.7397 1.46824 13.8819 1.30043 15.2637 2.4644C17.0882 4.00326 16.8169 6.53115 15.5244 7.84865Z"
+                                    fill="#353535" />
+                            </svg>
+                            Meus desejos
+                        </a>
+                    </div>
+                    <div class="header__minicart">
+                        <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.7682 23.2112L18.9441 5.84052C18.9059 5.47687 18.5993 5.20074 18.2337 5.20074H14.8052V4.41907C14.8052 1.98248 12.8227 0 10.3861 0C7.94937 0 5.96689 1.98248 5.96689 4.41907V5.20074H2.53842C2.17276 5.20074 1.86624 5.47687 1.82797 5.84052L0.00387816 23.2112C-0.017179 23.4124 0.0481897 23.6133 0.183505 23.7638C0.319003 23.9141 0.511996 24 0.714327 24H20.0576C20.2601 24 20.4531 23.9141 20.5884 23.7638C20.7241 23.6133 20.7893 23.4124 20.7682 23.2112ZM7.39548 4.41907C7.39548 2.7702 8.73709 1.42859 10.3861 1.42859C12.035 1.42859 13.3766 2.7702 13.3766 4.41907V5.20074H7.39548V4.41907ZM1.50754 22.5714L3.18167 6.62933H5.96689V8.20349C5.96689 8.5979 6.28678 8.91779 6.68119 8.91779C7.07559 8.91779 7.39548 8.5979 7.39548 8.20349V6.62933H13.3766V8.20349C13.3766 8.5979 13.6965 8.91779 14.0909 8.91779C14.4853 8.91779 14.8052 8.5979 14.8052 8.20349V6.62933H17.5904L19.2646 22.5714H1.50754Z"
+                                fill="black" />
+                        </svg>
+                        Meu Carrinho
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU -->
+        <nav class="menu">
+            <div class="menu__container">
+                <div class="menu__close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19.023" height="19.023" viewBox="0 0 19.023 19.023">
+                        <path id="Path_23368" data-name="Path 23368"
+                            d="M10.562,9.512,18.8,1.269A.743.743,0,0,0,17.754.218L9.511,8.461,1.268.218A.743.743,0,0,0,.217,1.269L8.46,9.512.217,17.755a.743.743,0,0,0,1.051,1.051l8.243-8.243,8.243,8.243A.743.743,0,0,0,18.8,17.755Z"
+                            transform="translate(0 -0.001)" fill="#fff" />
+                    </svg>
+                </div>
+                <div class="menu__topbar">
+                    <div class="menu__account">
+                        <a href="/account">
+                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.8 9.5C8.90312 9.5 8.47188 10 7 10C5.52812 10 5.1 9.5 4.2 9.5C1.88125 9.5 0 11.3813 0 13.7V14.5C0 15.3281 0.671875 16 1.5 16H12.5C13.3281 16 14 15.3281 14 14.5V13.7C14 11.3813 12.1187 9.5 9.8 9.5ZM12.5 14.5H1.5V13.7C1.5 12.2125 2.7125 11 4.2 11C4.65625 11 5.39687 11.5 7 11.5C8.61563 11.5 9.34062 11 9.8 11C11.2875 11 12.5 12.2125 12.5 13.7V14.5ZM7 9C9.48438 9 11.5 6.98438 11.5 4.5C11.5 2.01562 9.48438 0 7 0C4.51562 0 2.5 2.01562 2.5 4.5C2.5 6.98438 4.51562 9 7 9ZM7 1.5C8.65312 1.5 10 2.84687 10 4.5C10 6.15312 8.65312 7.5 7 7.5C5.34688 7.5 4 6.15312 4 4.5C4 2.84687 5.34688 1.5 7 1.5Z"
+                                    fill="#353535" />
+                            </svg>
+                            Minha Conta
+                        </a>
+                    </div>
+                    <div class="menu__wishlist">
+                        <a href="/wishlist">
+                            <svg width="19" height="16" viewBox="0 0 19 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.367 1.15404C14.3033 -0.581202 11.1148 -0.320559 9.14037 1.68961C7.16591 -0.320559 3.97749 -0.584772 1.91377 1.15404C-0.771215 3.41414 -0.378464 7.09885 1.5353 9.05189L7.79788 15.4323C8.15493 15.7965 8.63337 16 9.14037 16C9.65095 16 10.1258 15.8001 10.4829 15.4359L16.7454 9.05546C18.6556 7.10242 19.0555 3.41771 16.367 1.15404ZM15.5244 7.84865L9.26177 14.2291C9.17608 14.3147 9.10467 14.3147 9.01898 14.2291L2.7564 7.84865C1.45318 6.52044 1.18897 4.00683 3.01704 2.46797C4.40595 1.30043 6.54822 1.47538 7.89071 2.84287L9.14037 4.11752L10.39 2.84287C11.7397 1.46824 13.8819 1.30043 15.2637 2.4644C17.0882 4.00326 16.8169 6.53115 15.5244 7.84865Z"
+                                    fill="#353535" />
+                            </svg>
+                            Meus desejos
+                        </a>
+                    </div>
+                </div>
+                <ul class="menu__list">
+                    <li class="menu__item menu__highlight">
+                        <a class="menu__link" href="#">
+                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.2125 12.6185L10.7257 8.60092C10.2108 7.76968 9.63262 6.97929 8.99642 6.23674L8.50005 5.65758V5.00005C8.5 4.65404 8.57983 4.31269 8.7333 4.00258C8.88678 3.69247 9.10976 3.42197 9.38489 3.21214L10.3619 2.72364C10.3952 2.70697 10.4244 2.68305 10.4473 2.65364C10.4702 2.62422 10.4863 2.59005 10.4943 2.55364C10.5023 2.51722 10.502 2.47947 10.4935 2.44317C10.4851 2.40686 10.4686 2.37291 10.4453 2.3438L9.44527 1.0938L9.44508 1.09395C9.42257 1.06565 9.39418 1.04259 9.36186 1.02636L8.36186 0.526361C8.32426 0.507541 8.28252 0.498515 8.24051 0.500121C8.1985 0.501727 8.15757 0.513913 8.12152 0.535548C7.78272 0.738757 7.39511 0.846161 7.00005 0.846298C6.60499 0.846189 6.21738 0.738818 5.87858 0.535642C5.84256 0.513985 5.80165 0.501772 5.75966 0.500133C5.71766 0.498494 5.67593 0.507483 5.63833 0.526267L4.63833 1.02627C4.60601 1.04249 4.57762 1.06556 4.55511 1.09386L4.55483 1.0938L3.55483 2.3438C3.53155 2.37291 3.51507 2.40685 3.5066 2.44315C3.49813 2.47945 3.49789 2.51718 3.50588 2.55358C3.51388 2.58999 3.52991 2.62414 3.55281 2.65355C3.57571 2.68296 3.6049 2.70688 3.63823 2.72355L4.6152 3.21205C4.89035 3.42188 5.11334 3.6924 5.26681 4.00252C5.42029 4.31265 5.50011 4.65402 5.50005 5.00005V5.65758L5.0037 6.23667C4.36749 6.97926 3.78934 7.76969 3.27436 8.60095L0.787547 12.6185C0.762317 12.6592 0.749339 12.7064 0.750159 12.7543C0.750979 12.8022 0.765562 12.8489 0.792172 12.8888C1.01 13.2155 1.31462 13.475 1.6718 13.6381L1.5343 13.8741H1.53455C1.52827 13.8846 1.52278 13.8956 1.51814 13.907C1.4935 13.9686 1.49432 14.0374 1.52043 14.0983C1.54653 14.1593 1.59577 14.2074 1.65733 14.232L1.9502 14.3492C2.47005 14.5579 3.03319 14.6358 3.59017 14.576L3.5063 14.9447C3.49875 14.9779 3.49807 15.0123 3.5043 15.0457C3.51052 15.0792 3.52352 15.1111 3.54249 15.1394C3.56146 15.1676 3.58601 15.1917 3.61463 15.2102C3.64325 15.2286 3.67534 15.241 3.70892 15.2466L4.28183 15.3423C4.91249 15.4471 5.55072 15.4999 6.19005 15.5H7.81005C8.44942 15.4999 9.08769 15.4471 9.71839 15.3422L10.2912 15.2466C10.3248 15.241 10.3569 15.2286 10.3855 15.2102C10.4141 15.1917 10.4387 15.1676 10.4576 15.1394C10.4766 15.1111 10.4896 15.0792 10.4958 15.0457C10.5021 15.0123 10.5014 14.9779 10.4938 14.9447L10.4101 14.5762C10.9671 14.6359 11.5303 14.558 12.0501 14.3494L12.343 14.2322C12.3765 14.219 12.4067 14.1987 12.4316 14.1727C12.4565 14.1467 12.4754 14.1156 12.4871 14.0816C12.4988 14.0475 12.5029 14.0113 12.4992 13.9755C12.4956 13.9397 12.4841 13.9052 12.4658 13.8742H12.466L12.3285 13.6383C12.6857 13.4751 12.9903 13.2156 13.2081 12.8889C13.2347 12.849 13.2493 12.8023 13.2501 12.7543C13.2509 12.7064 13.2378 12.6592 13.2125 12.6185ZM9.50005 2.59555V1.96274L9.86164 2.41477L9.50005 2.59555ZM7.98755 1.15727C7.95005 1.39219 7.83003 1.60605 7.64904 1.76044C7.46805 1.91484 7.23794 1.99965 7.00005 1.99965C6.76215 1.99965 6.53205 1.91484 6.35106 1.76044C6.17006 1.60605 6.05004 1.39219 6.01255 1.15727C6.32684 1.28202 6.6619 1.34616 7.00005 1.3463C7.33819 1.34616 7.67326 1.28202 7.98755 1.15727ZM4.50005 1.96274V2.59555L4.13845 2.41477L4.50005 1.96274ZM5.00005 2.87886V1.40455L5.50761 1.15077C5.5449 1.52067 5.71822 1.86355 5.99398 2.11291C6.26973 2.36227 6.62827 2.50033 7.00005 2.50033C7.37183 2.50033 7.73036 2.36227 8.00612 2.11291C8.28187 1.86355 8.4552 1.52067 8.49249 1.15077L9.00005 1.40455V2.87886C8.719 3.11068 8.48684 3.39605 8.31706 3.71839C8.14728 4.04072 8.04327 4.39359 8.01108 4.75648C7.80985 4.77543 7.61517 4.83799 7.44056 4.9398C7.26596 5.04162 7.11564 5.18025 7.00005 5.34605C6.88446 5.18025 6.73413 5.04162 6.55953 4.9398C6.38493 4.83799 6.19025 4.77543 5.98902 4.75648C5.95682 4.39359 5.85281 4.04072 5.68303 3.71839C5.51325 3.39605 5.28109 3.11068 5.00005 2.87886ZM7.30789 5.82545C7.36361 5.67898 7.45691 5.54977 7.57841 5.4508C7.69991 5.35183 7.84534 5.2866 8.00005 5.26167V5.63874C7.90402 5.7163 7.79286 5.77298 7.67367 5.80513C7.55449 5.83728 7.4299 5.8442 7.30789 5.82545ZM6.00005 5.63874V5.26167C6.15476 5.2866 6.30018 5.35183 6.42168 5.4508C6.54319 5.54977 6.63649 5.67898 6.6922 5.82545C6.57019 5.8442 6.44561 5.83728 6.32642 5.80513C6.20724 5.77297 6.09608 5.7163 6.00005 5.63874ZM2.13577 13.8851L2.11205 13.8757L3.71599 11.1261L3.28411 10.8742L1.92505 13.2036C1.68239 13.1015 1.46837 12.9416 1.30161 12.7378L3.69945 8.8642C4.20089 8.05481 4.76383 7.28517 5.3833 6.56211L5.78095 6.09814C5.84868 6.14389 5.92031 6.18356 5.99502 6.2167L5.30108 8.02067C4.94131 8.95721 4.64896 9.91828 4.42627 10.8965L3.70845 14.055C3.17858 14.1439 2.63443 14.0852 2.13577 13.8851ZM4.36389 14.8491L4.05242 14.7971L4.9137 11.0073C5.13112 10.0524 5.41654 9.11426 5.76777 8.20005L6.48339 6.33974L6.46499 6.33267C6.4952 6.33464 6.52545 6.33602 6.55586 6.33602C6.62084 6.33592 6.68573 6.33127 6.75005 6.32208V15H6.19005C5.57826 14.9999 4.96752 14.9494 4.36402 14.8491H4.36389ZM9.63602 14.8491C9.03253 14.9494 8.42182 14.9999 7.81005 15H7.25005V6.32217C7.31437 6.33134 7.37926 6.33598 7.44424 6.33608C7.47464 6.33608 7.50492 6.3347 7.53511 6.33274L7.5167 6.3398L8.23233 8.20005C8.58351 9.11426 8.86888 10.0524 9.08627 11.0073L9.94755 14.7971L9.63602 14.8491ZM12.4524 12.9801C12.3373 13.0715 12.2103 13.1467 12.0748 13.2037L10.716 10.8741L10.2841 11.126L11.888 13.8756L11.8644 13.885C11.3657 14.0851 10.8215 14.1438 10.2916 14.0549L9.57383 10.8964C9.35113 9.91816 9.05878 8.95708 8.69902 8.02052L8.00508 6.21658C8.07978 6.18344 8.15141 6.14377 8.21914 6.09805L8.61683 6.56208C9.23628 7.2851 9.7992 8.05469 10.3006 8.86405L12.6985 12.7378C12.6254 12.8272 12.5429 12.9084 12.4525 12.9801L12.4524 12.9801Z"
+                                    fill="black" />
+                            </svg>
+                            Novidades
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Vestidos
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Roupas
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Sapatos
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Lingerie
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Acessórios
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            OUTLET
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- FULLBANNER -->
+        <section class="fullbanner desktop">
+            <div class="fullbanner__wrapper">
+                <a href="/">
+                    <img src="https://i.postimg.cc/Bb6mtrxf/fullbanner.png" alt="">
+                </a>
+                <a href="/">
+                    <img src="https://i.postimg.cc/Bb6mtrxf/fullbanner.png" alt="">
+                </a>
+            </div>
+        </section>
+
+        <section class="fullbanner mobile">
+            <div class="fullbanner__wrapper">
+                <a href="/">
+                    <img src="https://i.postimg.cc/zDTD54Pb/fullbanner-mobile.png" alt="">
+                </a>
+                <a href="/">
+                    <img src="https://i.postimg.cc/zDTD54Pb/fullbanner-mobile.png" alt="">
+                </a>
+            </div>
+        </section>
+
+        <!-- MAIN CONTAINER -->
+        <div class="container">
+
+            <!-- REGUA DE VANTAGENS -->
+            <section class="ruler">
+                <h3 class="ruler__title">
+                    Por que comprar na Maeztra?
+                </h3>
+                <ul class="ruler__list">
+                    <li class="ruler__item">
+                        <div class="ruler__item--wrapper">
+                            <div class="ruler__image">
+                                <img src="https://i.postimg.cc/MZCPmpJv/ruler-01.png" alt="">
+                            </div>
+                            <p>
+                                <strong>Produtos importados</strong>
+                                <span>Produto de Alta Qualidade</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="ruler__item">
+                        <div class="ruler__item--wrapper">
+                            <div class="ruler__image">
+                                <img src="https://i.postimg.cc/g2dg1tJp/ruler-02.png" alt="">
+                            </div>
+                            <p>
+                                <strong>Estoque no Brazil</strong>
+                                <span>Produtos mais perto de você!</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="ruler__item">
+                        <div class="ruler__item--wrapper">
+                            <div class="ruler__image">
+                                <img src="https://i.postimg.cc/YSCbC4Yy/ruler-03.png" alt="">
+                            </div>
+                            <p>
+                                <strong>Trocas Garantidas</strong>
+                                <span>Trocas em até 48 horas, vejas as regras</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="ruler__item">
+                        <div class="ruler__item--wrapper">
+                            <div class="ruler__image">
+                                <img src="https://i.postimg.cc/15DWC1yM/ruler-04.png" alt="">
+                            </div>
+                            <p>
+                                <strong>Ganhe 5% off</strong>
+                                <span>Pagando à vista no Cartão</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="ruler__item">
+                        <div class="ruler__item--wrapper">
+                            <div class="ruler__image">
+                                <img src="https://i.postimg.cc/dVB5FRky/ruler-05.png " alt="">
+                            </div>
+                            <p>
+                                <strong>Frete Grátis</strong>
+                                <span>Em compras acima de R$ 499,00</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- CARROSSEL DE MARCAS -->
+            <section class="brands">
+                <h2 class="brands__title">
+                    Marcas Parceiras
+                </h2>
+                <ul class="brands__list">
+                    <li class="brands__item">
+                        <img src="https://i.postimg.cc/DZcDMVrt/marca-01.png" alt="Logo comma,">
+                    </li>
+                    <li class="brands__item">
+                        <img src="https://i.postimg.cc/D0yDVC5m/marca-02.png" alt="Logo melissa">
+                    </li>
+                    <li class="brands__item">
+                        <img src="https://i.postimg.cc/0jW49pHn/marca-03.png" alt="Logo FOREVER 21">
+                    </li>
+                    <li class="brands__item">
+                        <img src="https://i.postimg.cc/c1X27S43/marca-04.png" alt="Logo Zara">
+                    </li>
+                    <li class="brands__item">
+                        <img src="https://i.postimg.cc/ncr50PCP/marca-05.png" alt="Logo Ann Taylor">
+                    </li>
+                </ul>
+            </section>
+
+            <!-- SHOWCASE -->
+            <section class="showcase">
+                <h2 class="showcase__title">
+                    As Mais Pedidas
+                </h2>
+                <div class="showcase__container">
+                    <div class="showcase__wrapper">
+                        <div class="spot">
+                            <div class="spot__image">
+                                <img src="https://i.postimg.cc/vHj9yBbb/produto-01.png" alt="Imagem produto">
+                            </div>
+                            <div class="spot__content">
+                                <div class="spot__variant">
+                                    <ul class="spot__variant--list">
+                                        <li class="spot__variant--item" data-color="#DEAC71"></li>
+                                        <li class="spot__variant--item" data-color="#D37164"></li>
+                                        <li class="spot__variant--item" data-color="#6497D3"></li>
+                                        <li class="spot__variant--item" data-color="#3C3B79"></li>
+                                    </ul>
+                                </div>
+                                <div class="spot__price">R$ 500,00</div>
+                                <h4 class="spot__title">Faux Suede Mini Skirt</h4>
+                                <p class="spot__subtitle">A satin mini skirt featuring an allover floral print, ruched
+                                    side
+                                    with self-tie closure,
+                                    concealed back zipper, and a flounce hem.</p>
+                                <button class="spot__buy">
+                                    <span>Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="spot">
+                            <div class="spot__image">
+                                <img src="https://i.postimg.cc/BnKFn0nD/produto-02.png" alt="">
+                            </div>
+                            <div class="spot__content">
+                                <div class="spot__variant">
+                                    <ul class="spot__variant--list">
+                                        <li class="spot__variant--item" data-color="#1C1A19"></li>
+                                        <li class="spot__variant--item" data-color="#D84E4B"></li>
+                                        <li class="spot__variant--item" data-color="#CFC9B0"></li>
+                                        <li class="spot__variant--item" data-color="#EAE9E5"></li>
+                                    </ul>
+                                </div>
+                                <div class="spot__price">R$ 500,00</div>
+                                <h4 class="spot__title">Faux Suede Mini Skirt</h4>
+                                <p class="spot__subtitle">A satin mini skirt featuring an allover floral print, ruched
+                                    side
+                                    with self-tie closure,
+                                    concealed back zipper, and a flounce hem.</p>
+                                <button class="spot__buy">
+                                    <span>Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="spot">
+                            <div class="spot__image">
+                                <img src="https://i.postimg.cc/vHj9yBbb/produto-01.png" alt="Imagem produto">
+                            </div>
+                            <div class="spot__content">
+                                <div class="spot__variant">
+                                    <ul class="spot__variant--list">
+                                        <li class="spot__variant--item" data-color="#DEAC71"></li>
+                                        <li class="spot__variant--item" data-color="#D37164"></li>
+                                        <li class="spot__variant--item" data-color="#6497D3"></li>
+                                        <li class="spot__variant--item" data-color="#3C3B79"></li>
+                                    </ul>
+                                </div>
+                                <div class="spot__price">R$ 500,00</div>
+                                <h4 class="spot__title">Faux Suede Mini Skirt</h4>
+                                <p class="spot__subtitle">A satin mini skirt featuring an allover floral print, ruched
+                                    side
+                                    with self-tie closure,
+                                    concealed back zipper, and a flounce hem.</p>
+                                <button class="spot__buy">
+                                    <span>Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="spot">
+                            <div class="spot__image">
+                                <img src="https://i.postimg.cc/BnKFn0nD/produto-02.png" alt="">
+                            </div>
+                            <div class="spot__content">
+                                <div class="spot__variant">
+                                    <ul class="spot__variant--list">
+                                        <li class="spot__variant--item" data-color="#1C1A19"></li>
+                                        <li class="spot__variant--item" data-color="#D84E4B"></li>
+                                        <li class="spot__variant--item" data-color="#CFC9B0"></li>
+                                        <li class="spot__variant--item" data-color="#EAE9E5"></li>
+                                    </ul>
+                                </div>
+                                <div class="spot__price">R$ 500,00</div>
+                                <h4 class="spot__title">Faux Suede Mini Skirt</h4>
+                                <p class="spot__subtitle">A satin mini skirt featuring an allover floral print, ruched
+                                    side
+                                    with self-tie closure,
+                                    concealed back zipper, and a flounce hem.</p>
+                                <button class="spot__buy">
+                                    <span>Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="spot">
+                            <div class="spot__image">
+                                <img src="https://i.postimg.cc/vHj9yBbb/produto-01.png" alt="Imagem produto">
+                            </div>
+                            <div class="spot__content">
+                                <div class="spot__variant">
+                                    <ul class="spot__variant--list">
+                                        <li class="spot__variant--item" data-color="#DEAC71"></li>
+                                        <li class="spot__variant--item" data-color="#D37164"></li>
+                                        <li class="spot__variant--item" data-color="#6497D3"></li>
+                                        <li class="spot__variant--item" data-color="#3C3B79"></li>
+                                    </ul>
+                                </div>
+                                <div class="spot__price">R$ 500,00</div>
+                                <h4 class="spot__title">Faux Suede Mini Skirt</h4>
+                                <p class="spot__subtitle">A satin mini skirt featuring an allover floral print, ruched
+                                    side
+                                    with self-tie closure,
+                                    concealed back zipper, and a flounce hem.</p>
+                                <button class="spot__buy">
+                                    <span>Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="spot">
+                            <div class="spot__image">
+                                <img src="https://i.postimg.cc/BnKFn0nD/produto-02.png" alt="">
+                            </div>
+                            <div class="spot__content">
+                                <div class="spot__variant">
+                                    <ul class="spot__variant--list">
+                                        <li class="spot__variant--item" data-color="#1C1A19"></li>
+                                        <li class="spot__variant--item" data-color="#D84E4B"></li>
+                                        <li class="spot__variant--item" data-color="#CFC9B0"></li>
+                                        <li class="spot__variant--item" data-color="#EAE9E5"></li>
+                                    </ul>
+                                </div>
+                                <div class="spot__price">R$ 500,00</div>
+                                <h4 class="spot__title">Faux Suede Mini Skirt</h4>
+                                <p class="spot__subtitle">A satin mini skirt featuring an allover floral print, ruched
+                                    side
+                                    with self-tie closure,
+                                    concealed back zipper, and a flounce hem.</p>
+                                <button class="spot__buy">
+                                    <span>Adicionar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TEXTO SEO + BANNER -->
+            <section class="seo">
+                <div class="seo__wrapper">
+                    <div class="seo__info">
+                        <h2 class="seo__title">
+                            Lorem ipsum
+                        </h2>
+                        <p class="seo__text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum mauris posuere fusce proin
+                            mattis.
+                            Hendrerit cras ut nunc enim dictum. Mattis proin ut quis donec sed eget nulla. Vel mi ut
+                            mauris
+                            integer. Nibh sagittis in lobortis sed cursus condimentum velit pharetra. Amet luctus ut
+                            vulputate
+                            scelerisque placerat consequat. Neque arcu mi iaculis id. Vel vitae, pharetra, a nec
+                            tristique.
+                            Feugiat id tortor eu mauris pulvinar velit massa. Ut ornare augue eget convallis volutpat
+                            aliquet.
+                            Sed sed pellentesque porttitor phasellus donec condimentum sit sapien.
+                        </p>
+                    </div>
+                    <div class="seo__banner">
+                        <img src="https://i.postimg.cc/ZnqSw4MM/minibanner-seo.png" class="seo__banner--image desktop"
+                            alt="Minibanner">
+                        <img src="https://i.postimg.cc/C5pc0Rr2/minibanner-seo-mobile.png"
+                            class="seo__banner--image mobile" alt="Minibanner">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+            <div class="newsletter__container">
+                <h3 class="newsletter__label">Recebe nossa newsletter</h3>
+                <form action="" class="newsletter__form">
+                    <input type="text" placeholder="Digite seu e-mail">
+                    <button type="submit">
+                        <span>Enviar</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section class="footer">
+            <div class="footer__container">
+                <div class="footer__wrapper">
+                    <ul class="footer__list footer__info">
+                        <li class="footer__title">Informações</li>
+                        <div class="footer__item">
+                            <a class="footer__link" href="/quem-somos">
+                                Quem Somos
+                            </a>
+                            <a class="footer__link" href="/prazos">
+                                Prazo de Envio
+                            </a>
+                            <a class="footer__link" href="/trocas">
+                                Trocas e Devoluções
+                            </a>
+                            <a class="footer__link" href="/promocoes">
+                                Promoções e Cupons
+                            </a>
+                        </div>
+                    </ul>
+                    <ul class="footer__list footer__account">
+                        <li class="footer__title">Minha Conta</li>
+                        <div class="footer__item">
+                            <a class="footer__link" href="/conta">
+                                Minha Conta
+                            </a>
+                            <a class="footer__link" href="/pedidos">
+                                Meus Pedidos
+                            </a>
+                            <a class="footer__link" href="/cadastrar">
+                                Cadastre-se
+                            </a>
+                        </div>
+                    </ul>
+                    <ul class="footer__list footer__find">
+                        <li class="footer__title">Onde nos Encontrar</li>
+                        <div class="footer__item">
+                            <a class="footer__link" href="/lojas">
+                                Lojas
+                            </a>
+                            <a class="footer__link" href="/find">
+                                Endereço
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- COPYRIGHT -->
+        <section class="copyright">
+            <div class="copyright__container">
+
+                <!-- REDES SOCIAIS -->
+                <div class="social">
+                    <a href="https://www.facebook.com/" class="social__link facebook" target="_blank">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M32 3.42857V28.5714C32 30.4643 30.4643 32 28.5714 32H22.4786V19.3429H26.8071L27.4286 14.5143H22.4786V11.4286C22.4786 10.0286 22.8643 9.07857 24.8714 9.07857H27.4286V4.76429C26.9857 4.70714 25.4714 4.57143 23.7 4.57143C20.0143 4.57143 17.4857 6.82143 17.4857 10.9571V14.5214H13.1429V19.35H17.4929V32H3.42857C1.53571 32 0 30.4643 0 28.5714V3.42857C0 1.53571 1.53571 0 3.42857 0H28.5714C30.4643 0 32 1.53571 32 3.42857Z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/maeztra/" class="social__link linkedin" target="_blank">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.16269 32H0.528453V10.6357H7.16269V32ZM3.842 7.72143C1.72104 7.72143 0 5.96429 0 3.84286C0 1.72143 1.72104 0 3.842 0C5.96295 0 7.684 1.72143 7.684 3.84286C7.684 5.96429 5.96295 7.72143 3.842 7.72143ZM31.9929 32H25.3729V21.6C25.3729 19.1214 25.3229 15.9429 21.9237 15.9429C18.4744 15.9429 17.946 18.6357 17.946 21.4214V32H11.3189V10.6357H17.6818V13.55H17.7746C18.6601 11.8714 20.8239 10.1 24.0518 10.1C30.7646 10.1 32 14.5214 32 20.2643V32H31.9929Z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/maeztra_consultoria/" class="social__link instagram"
+                        target="_blank">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.0036 7.7956C11.4632 7.7956 7.801 11.4587 7.801 16C7.801 20.5413 11.4632 24.2044 16.0036 24.2044C20.5439 24.2044 24.2061 20.5413 24.2061 16C24.2061 11.4587 20.5439 7.7956 16.0036 7.7956ZM16.0036 21.3339C13.0695 21.3339 10.6708 18.9419 10.6708 16C10.6708 13.0581 13.0624 10.6661 16.0036 10.6661C18.9448 10.6661 21.3363 13.0581 21.3363 16C21.3363 18.9419 18.9376 21.3339 16.0036 21.3339ZM26.4549 7.46C26.4549 8.52393 25.5982 9.37365 24.5417 9.37365C23.478 9.37365 22.6284 8.51679 22.6284 7.46C22.6284 6.40321 23.4851 5.54636 24.5417 5.54636C25.5982 5.54636 26.4549 6.40321 26.4549 7.46ZM31.8876 9.40221C31.7662 6.83878 31.1808 4.56811 29.3033 2.69731C27.4329 0.826509 25.1627 0.240991 22.5999 0.112462C19.9585 -0.0374873 12.0415 -0.0374873 9.40011 0.112462C6.8444 0.23385 4.57423 0.819368 2.69671 2.69017C0.819186 4.56097 0.240937 6.83164 0.112437 9.39507C-0.0374791 12.037 -0.0374791 19.9558 0.112437 22.5978C0.233798 25.1612 0.819186 27.4319 2.69671 29.3027C4.57423 31.1735 6.83726 31.759 9.40011 31.8875C12.0415 32.0375 19.9585 32.0375 22.5999 31.8875C25.1627 31.7661 27.4329 31.1806 29.3033 29.3027C31.1737 27.4319 31.7591 25.1612 31.8876 22.5978C32.0375 19.9558 32.0375 12.0442 31.8876 9.40221ZM28.4752 25.4326C27.9184 26.8321 26.8404 27.9103 25.434 28.4744C23.3281 29.3098 18.3308 29.117 16.0036 29.117C13.6763 29.117 8.67195 29.3027 6.57312 28.4744C5.1739 27.9174 4.09593 26.8392 3.53196 25.4326C2.69671 23.3261 2.88946 18.3278 2.88946 16C2.88946 13.6722 2.70385 8.66674 3.53196 6.56744C4.08879 5.16791 5.16676 4.0897 6.57312 3.52561C8.67909 2.69017 13.6763 2.88296 16.0036 2.88296C18.3308 2.88296 23.3352 2.69731 25.434 3.52561C26.8332 4.08256 27.9112 5.16077 28.4752 6.56744C29.3104 8.67388 29.1177 13.6722 29.1177 16C29.1177 18.3278 29.3104 23.3333 28.4752 25.4326Z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@QuatrodigitalBr" class="social__link youtube" target="_blank">
+                        <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M31.3313 3.44226C30.9633 2.08731 29.879 1.02019 28.5022 0.658052C26.0067 0 16 0 16 0C16 0 5.99337 0 3.49781 0.658052C2.12103 1.02025 1.0367 2.08731 0.668671 3.44226C0 5.89818 -2.27987e-08 11.0222 -2.27987e-08 11.0222C-2.27987e-08 11.0222 0 16.1463 0.668671 18.6022C1.0367 19.9572 2.12103 20.9798 3.49781 21.3419C5.99337 22 16 22 16 22C16 22 26.0066 22 28.5022 21.3419C29.879 20.9798 30.9633 19.9572 31.3313 18.6022C32 16.1463 32 11.0222 32 11.0222C32 11.0222 32 5.89818 31.3313 3.44226ZM12.7273 15.6745V6.36997L21.0909 11.0223L12.7273 15.6745Z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- PAGAMENTOS -->
+                <div class="payment">
+                    <div class="payment__wrapper">
+                        <!-- VISA -->
+                        <svg width="32" height="25" viewBox="0 0 32 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M26.1167 11.1217C26.1167 11.1217 26.5389 13.1975 26.6333 13.6328H24.7778C24.9611 13.1362 25.6667 11.2054 25.6667 11.2054C25.6556 11.2221 25.85 10.6975 25.9611 10.3739L26.1167 11.1217ZM32 2.67857V22.3214C32 23.8002 30.8056 25 29.3333 25H2.66667C1.19444 25 0 23.8002 0 22.3214V2.67857C0 1.19978 1.19444 0 2.66667 0H29.3333C30.8056 0 32 1.19978 32 2.67857ZM8.47222 16.6964L11.9833 8.03571H9.62222L7.43889 13.9509L7.2 12.7511L6.42222 8.76674C6.29444 8.21429 5.9 8.05804 5.41111 8.03571H1.81667L1.77778 8.20871C2.65556 8.43192 3.43889 8.75558 4.12222 9.16295L6.11111 16.6964H8.47222ZM13.7167 16.7076L15.1167 8.03571H12.8833L11.4889 16.7076H13.7167ZM21.4889 13.8728C21.5 12.885 20.9 12.1317 19.6167 11.5123C18.8333 11.1161 18.3556 10.8482 18.3556 10.4408C18.3667 10.0725 18.7611 9.69308 19.6389 9.69308C20.3667 9.67634 20.9 9.84933 21.3 10.0223L21.5 10.1172L21.8056 8.24219C21.3667 8.0692 20.6667 7.87388 19.8056 7.87388C17.6 7.87388 16.05 9.05692 16.0389 10.7422C16.0222 11.9866 17.15 12.6786 17.9944 13.0971C18.8556 13.5212 19.15 13.8002 19.15 14.1741C19.1389 14.7545 18.45 15.0223 17.8111 15.0223C16.9222 15.0223 16.4444 14.8828 15.7167 14.5592L15.4222 14.4196L15.1111 16.3672C15.6333 16.6071 16.6 16.8192 17.6 16.8304C19.9444 16.8359 21.4722 15.6696 21.4889 13.8728ZM29.3333 16.7076L27.5333 8.03571H25.8056C25.2722 8.03571 24.8667 8.19196 24.6389 8.75558L21.3222 16.7076H23.6667C23.6667 16.7076 24.05 15.6362 24.1333 15.4074H27C27.0667 15.7143 27.2667 16.7076 27.2667 16.7076H29.3333Z"
+                                fill="white" />
+                        </svg>
+
+                        <!-- MASTERCARD -->
+                        <svg width="32" height="25" viewBox="0 0 32 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M26.8278 21.0547C26.8278 21.4342 26.5722 21.7076 26.2056 21.7076C25.8278 21.7076 25.5833 21.4174 25.5833 21.0547C25.5833 20.692 25.8278 20.4018 26.2056 20.4018C26.5722 20.4018 26.8278 20.692 26.8278 21.0547ZM9.56111 20.4018C9.16667 20.4018 8.93889 20.692 8.93889 21.0547C8.93889 21.4174 9.16667 21.7076 9.56111 21.7076C9.92222 21.7076 10.1667 21.4342 10.1667 21.0547C10.1611 20.692 9.92222 20.4018 9.56111 20.4018ZM16.0889 20.385C15.7889 20.385 15.6056 20.5804 15.5611 20.8705H16.6222C16.5722 20.5525 16.3778 20.385 16.0889 20.385ZM22.0778 20.4018C21.7 20.4018 21.4722 20.692 21.4722 21.0547C21.4722 21.4174 21.7 21.7076 22.0778 21.7076C22.4556 21.7076 22.7 21.4342 22.7 21.0547C22.7 20.692 22.4556 20.4018 22.0778 20.4018ZM27.9611 21.8583C27.9611 21.875 27.9778 21.8862 27.9778 21.9196C27.9778 21.9364 27.9611 21.9475 27.9611 21.981C27.9444 21.9978 27.9444 22.0089 27.9333 22.0257C27.9167 22.0424 27.9056 22.0536 27.8722 22.0536C27.8556 22.0703 27.8444 22.0703 27.8111 22.0703C27.7944 22.0703 27.7833 22.0703 27.75 22.0536C27.7333 22.0536 27.7222 22.0368 27.7056 22.0257C27.6889 22.0089 27.6778 21.9978 27.6778 21.981C27.6611 21.9531 27.6611 21.9364 27.6611 21.9196C27.6611 21.8917 27.6611 21.875 27.6778 21.8583C27.6778 21.8304 27.6944 21.8136 27.7056 21.7969C27.7222 21.7801 27.7333 21.7801 27.75 21.769C27.7778 21.7522 27.7944 21.7522 27.8111 21.7522C27.8389 21.7522 27.8556 21.7522 27.8722 21.769C27.9 21.7857 27.9167 21.7857 27.9333 21.7969C27.95 21.808 27.9444 21.8304 27.9611 21.8583ZM27.8389 21.9364C27.8667 21.9364 27.8667 21.9196 27.8833 21.9196C27.9 21.9029 27.9 21.8917 27.9 21.875C27.9 21.8583 27.9 21.8471 27.8833 21.8304C27.8667 21.8304 27.8556 21.8136 27.8222 21.8136H27.7333V22.0089H27.7778V21.9308H27.7944L27.8556 22.0089H27.9L27.8389 21.9364ZM32 2.67857V22.3214C32 23.8002 30.8056 25 29.3333 25H2.66667C1.19444 25 0 23.8002 0 22.3214V2.67857C0 1.19978 1.19444 0 2.66667 0H29.3333C30.8056 0 32 1.19978 32 2.67857ZM3.55556 10.4688C3.55556 14.7377 7.00556 18.1975 11.25 18.1975C12.7611 18.1975 14.2444 17.74 15.5 16.9085C11.45 13.5993 11.4778 7.35491 15.5 4.04576C14.2444 3.20871 12.7611 2.7567 11.25 2.7567C7.00556 2.75112 3.55556 6.21652 3.55556 10.4688ZM16 16.5402C19.9167 13.471 19.9 7.48884 16 4.4029C12.1 7.48884 12.0833 13.4766 16 16.5402ZM8.09444 20.798C8.09444 20.3125 7.77778 19.9944 7.27778 19.9777C7.02222 19.9777 6.75 20.0558 6.56667 20.3404C6.43333 20.1116 6.20556 19.9777 5.88889 19.9777C5.67778 19.9777 5.46667 20.0558 5.3 20.279V20.0335H4.84444V22.0815H5.3C5.3 21.0268 5.16111 20.3962 5.8 20.3962C6.36667 20.3962 6.25556 20.9654 6.25556 22.0815H6.69444C6.69444 21.0603 6.55556 20.3962 7.19444 20.3962C7.76111 20.3962 7.65 20.9542 7.65 22.0815H8.10556V20.798H8.09444ZM10.5889 20.0335H10.15V20.279C10 20.0949 9.78889 19.9777 9.5 19.9777C8.92778 19.9777 8.48889 20.4353 8.48889 21.0547C8.48889 21.6797 8.92778 22.1317 9.5 22.1317C9.78889 22.1317 10 22.0257 10.15 21.8304V22.0871H10.5889V20.0335ZM12.8389 21.4621C12.8389 20.625 11.5667 21.0045 11.5667 20.6138C11.5667 20.2958 12.2278 20.346 12.5944 20.5525L12.7778 20.1897C12.2556 19.8493 11.1 19.8549 11.1 20.6473C11.1 21.4453 12.3722 21.1105 12.3722 21.4844C12.3722 21.8359 11.6222 21.808 11.2222 21.529L11.0278 21.8806C11.65 22.3047 12.8389 22.2154 12.8389 21.4621ZM14.8056 21.981L14.6833 21.6016C14.4722 21.7188 14.0056 21.8471 14.0056 21.3728V20.4464H14.7333V20.0335H14.0056V19.4085H13.55V20.0335H13.1278V20.4408H13.55V21.3728C13.55 22.3549 14.5111 22.1763 14.8056 21.981ZM15.5444 21.2333H17.0722C17.0722 20.3292 16.6611 19.9721 16.1056 19.9721C15.5167 19.9721 15.0944 20.4129 15.0944 21.0491C15.0944 22.1931 16.35 22.3828 16.9722 21.8415L16.7611 21.5067C16.3278 21.8638 15.6722 21.8304 15.5444 21.2333ZM18.8278 20.0335C18.5722 19.9219 18.1833 19.933 17.9833 20.279V20.0335H17.5278V22.0815H17.9833V20.9263C17.9833 20.279 18.5111 20.3627 18.6944 20.4576L18.8278 20.0335ZM19.4167 21.0547C19.4167 20.4185 20.0611 20.2121 20.5667 20.5859L20.7778 20.2232C20.1333 19.7154 18.9611 19.9944 18.9611 21.0603C18.9611 22.1652 20.2056 22.3884 20.7778 21.8973L20.5667 21.5346C20.0556 21.8973 19.4167 21.6797 19.4167 21.0547ZM23.1222 20.0335H22.6667V20.279C22.2056 19.6652 21.0056 20.0112 21.0056 21.0547C21.0056 22.1261 22.25 22.433 22.6667 21.8304V22.0871H23.1222V20.0335ZM24.9944 20.0335C24.8611 19.9665 24.3833 19.8717 24.15 20.279V20.0335H23.7111V22.0815H24.15V20.9263C24.15 20.3125 24.65 20.3516 24.8611 20.4576L24.9944 20.0335ZM27.2333 19.202H26.7944V20.279C26.3389 19.6708 25.1333 19.9944 25.1333 21.0547C25.1333 22.1373 26.3833 22.4275 26.7944 21.8304V22.0871H27.2333V19.202ZM27.6556 15.0112V15.2679H27.7V15.0112H27.8056V14.9665H27.55V15.0112H27.6556ZM28.0222 21.9196C28.0222 21.8917 28.0222 21.8583 28.0056 21.8304C27.9889 21.8136 27.9778 21.7857 27.9611 21.769C27.9444 21.7522 27.9167 21.7411 27.9 21.7243C27.8722 21.7243 27.8389 21.7076 27.8111 21.7076C27.7944 21.7076 27.7667 21.7243 27.7333 21.7243C27.7056 21.7411 27.6889 21.7522 27.6722 21.769C27.6444 21.7857 27.6278 21.8136 27.6278 21.8304C27.6111 21.8583 27.6111 21.8917 27.6111 21.9196C27.6111 21.9364 27.6111 21.9643 27.6278 21.9978C27.6278 22.0145 27.6444 22.0424 27.6722 22.0592C27.6889 22.0759 27.7 22.0871 27.7333 22.1038C27.7611 22.1205 27.7944 22.1205 27.8111 22.1205C27.8389 22.1205 27.8722 22.1205 27.9 22.1038C27.9167 22.0871 27.9444 22.0759 27.9611 22.0592C27.9778 22.0424 27.9889 22.0145 28.0056 21.9978C28.0222 21.9643 28.0222 21.9364 28.0222 21.9196ZM28.2 14.9609H28.1222L28.0333 15.1562L27.9444 14.9609H27.8667V15.2623H27.9111V15.0335L28 15.2288H28.0611L28.1389 15.0335V15.2623H28.2V14.9609ZM28.4444 10.4688C28.4444 6.21652 24.9944 2.75112 20.75 2.75112C19.2389 2.75112 17.7556 3.20871 16.5 4.04018C20.5056 7.34933 20.5667 13.6105 16.5 16.9029C17.7556 17.74 19.25 18.192 20.75 18.192C24.9944 18.1975 28.4444 14.7377 28.4444 10.4688Z"
+                                fill="white" />
+                        </svg>
+
+                        <!-- VISA -->
+                        <svg width="32" height="25" viewBox="0 0 32 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M26.1167 11.1217C26.1167 11.1217 26.5389 13.1975 26.6333 13.6328H24.7778C24.9611 13.1362 25.6667 11.2054 25.6667 11.2054C25.6556 11.2221 25.85 10.6975 25.9611 10.3739L26.1167 11.1217ZM32 2.67857V22.3214C32 23.8002 30.8056 25 29.3333 25H2.66667C1.19444 25 0 23.8002 0 22.3214V2.67857C0 1.19978 1.19444 0 2.66667 0H29.3333C30.8056 0 32 1.19978 32 2.67857ZM8.47222 16.6964L11.9833 8.03571H9.62222L7.43889 13.9509L7.2 12.7511L6.42222 8.76674C6.29444 8.21429 5.9 8.05804 5.41111 8.03571H1.81667L1.77778 8.20871C2.65556 8.43192 3.43889 8.75558 4.12222 9.16295L6.11111 16.6964H8.47222ZM13.7167 16.7076L15.1167 8.03571H12.8833L11.4889 16.7076H13.7167ZM21.4889 13.8728C21.5 12.885 20.9 12.1317 19.6167 11.5123C18.8333 11.1161 18.3556 10.8482 18.3556 10.4408C18.3667 10.0725 18.7611 9.69308 19.6389 9.69308C20.3667 9.67634 20.9 9.84933 21.3 10.0223L21.5 10.1172L21.8056 8.24219C21.3667 8.0692 20.6667 7.87388 19.8056 7.87388C17.6 7.87388 16.05 9.05692 16.0389 10.7422C16.0222 11.9866 17.15 12.6786 17.9944 13.0971C18.8556 13.5212 19.15 13.8002 19.15 14.1741C19.1389 14.7545 18.45 15.0223 17.8111 15.0223C16.9222 15.0223 16.4444 14.8828 15.7167 14.5592L15.4222 14.4196L15.1111 16.3672C15.6333 16.6071 16.6 16.8192 17.6 16.8304C19.9444 16.8359 21.4722 15.6696 21.4889 13.8728ZM29.3333 16.7076L27.5333 8.03571H25.8056C25.2722 8.03571 24.8667 8.19196 24.6389 8.75558L21.3222 16.7076H23.6667C23.6667 16.7076 24.05 15.6362 24.1333 15.4074H27C27.0667 15.7143 27.2667 16.7076 27.2667 16.7076H29.3333Z"
+                                fill="white" />
+                        </svg>
+
+                        <!-- MASTERCARD -->
+                        <svg width="32" height="25" viewBox="0 0 32 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M26.8278 21.0547C26.8278 21.4342 26.5722 21.7076 26.2056 21.7076C25.8278 21.7076 25.5833 21.4174 25.5833 21.0547C25.5833 20.692 25.8278 20.4018 26.2056 20.4018C26.5722 20.4018 26.8278 20.692 26.8278 21.0547ZM9.56111 20.4018C9.16667 20.4018 8.93889 20.692 8.93889 21.0547C8.93889 21.4174 9.16667 21.7076 9.56111 21.7076C9.92222 21.7076 10.1667 21.4342 10.1667 21.0547C10.1611 20.692 9.92222 20.4018 9.56111 20.4018ZM16.0889 20.385C15.7889 20.385 15.6056 20.5804 15.5611 20.8705H16.6222C16.5722 20.5525 16.3778 20.385 16.0889 20.385ZM22.0778 20.4018C21.7 20.4018 21.4722 20.692 21.4722 21.0547C21.4722 21.4174 21.7 21.7076 22.0778 21.7076C22.4556 21.7076 22.7 21.4342 22.7 21.0547C22.7 20.692 22.4556 20.4018 22.0778 20.4018ZM27.9611 21.8583C27.9611 21.875 27.9778 21.8862 27.9778 21.9196C27.9778 21.9364 27.9611 21.9475 27.9611 21.981C27.9444 21.9978 27.9444 22.0089 27.9333 22.0257C27.9167 22.0424 27.9056 22.0536 27.8722 22.0536C27.8556 22.0703 27.8444 22.0703 27.8111 22.0703C27.7944 22.0703 27.7833 22.0703 27.75 22.0536C27.7333 22.0536 27.7222 22.0368 27.7056 22.0257C27.6889 22.0089 27.6778 21.9978 27.6778 21.981C27.6611 21.9531 27.6611 21.9364 27.6611 21.9196C27.6611 21.8917 27.6611 21.875 27.6778 21.8583C27.6778 21.8304 27.6944 21.8136 27.7056 21.7969C27.7222 21.7801 27.7333 21.7801 27.75 21.769C27.7778 21.7522 27.7944 21.7522 27.8111 21.7522C27.8389 21.7522 27.8556 21.7522 27.8722 21.769C27.9 21.7857 27.9167 21.7857 27.9333 21.7969C27.95 21.808 27.9444 21.8304 27.9611 21.8583ZM27.8389 21.9364C27.8667 21.9364 27.8667 21.9196 27.8833 21.9196C27.9 21.9029 27.9 21.8917 27.9 21.875C27.9 21.8583 27.9 21.8471 27.8833 21.8304C27.8667 21.8304 27.8556 21.8136 27.8222 21.8136H27.7333V22.0089H27.7778V21.9308H27.7944L27.8556 22.0089H27.9L27.8389 21.9364ZM32 2.67857V22.3214C32 23.8002 30.8056 25 29.3333 25H2.66667C1.19444 25 0 23.8002 0 22.3214V2.67857C0 1.19978 1.19444 0 2.66667 0H29.3333C30.8056 0 32 1.19978 32 2.67857ZM3.55556 10.4688C3.55556 14.7377 7.00556 18.1975 11.25 18.1975C12.7611 18.1975 14.2444 17.74 15.5 16.9085C11.45 13.5993 11.4778 7.35491 15.5 4.04576C14.2444 3.20871 12.7611 2.7567 11.25 2.7567C7.00556 2.75112 3.55556 6.21652 3.55556 10.4688ZM16 16.5402C19.9167 13.471 19.9 7.48884 16 4.4029C12.1 7.48884 12.0833 13.4766 16 16.5402ZM8.09444 20.798C8.09444 20.3125 7.77778 19.9944 7.27778 19.9777C7.02222 19.9777 6.75 20.0558 6.56667 20.3404C6.43333 20.1116 6.20556 19.9777 5.88889 19.9777C5.67778 19.9777 5.46667 20.0558 5.3 20.279V20.0335H4.84444V22.0815H5.3C5.3 21.0268 5.16111 20.3962 5.8 20.3962C6.36667 20.3962 6.25556 20.9654 6.25556 22.0815H6.69444C6.69444 21.0603 6.55556 20.3962 7.19444 20.3962C7.76111 20.3962 7.65 20.9542 7.65 22.0815H8.10556V20.798H8.09444ZM10.5889 20.0335H10.15V20.279C10 20.0949 9.78889 19.9777 9.5 19.9777C8.92778 19.9777 8.48889 20.4353 8.48889 21.0547C8.48889 21.6797 8.92778 22.1317 9.5 22.1317C9.78889 22.1317 10 22.0257 10.15 21.8304V22.0871H10.5889V20.0335ZM12.8389 21.4621C12.8389 20.625 11.5667 21.0045 11.5667 20.6138C11.5667 20.2958 12.2278 20.346 12.5944 20.5525L12.7778 20.1897C12.2556 19.8493 11.1 19.8549 11.1 20.6473C11.1 21.4453 12.3722 21.1105 12.3722 21.4844C12.3722 21.8359 11.6222 21.808 11.2222 21.529L11.0278 21.8806C11.65 22.3047 12.8389 22.2154 12.8389 21.4621ZM14.8056 21.981L14.6833 21.6016C14.4722 21.7188 14.0056 21.8471 14.0056 21.3728V20.4464H14.7333V20.0335H14.0056V19.4085H13.55V20.0335H13.1278V20.4408H13.55V21.3728C13.55 22.3549 14.5111 22.1763 14.8056 21.981ZM15.5444 21.2333H17.0722C17.0722 20.3292 16.6611 19.9721 16.1056 19.9721C15.5167 19.9721 15.0944 20.4129 15.0944 21.0491C15.0944 22.1931 16.35 22.3828 16.9722 21.8415L16.7611 21.5067C16.3278 21.8638 15.6722 21.8304 15.5444 21.2333ZM18.8278 20.0335C18.5722 19.9219 18.1833 19.933 17.9833 20.279V20.0335H17.5278V22.0815H17.9833V20.9263C17.9833 20.279 18.5111 20.3627 18.6944 20.4576L18.8278 20.0335ZM19.4167 21.0547C19.4167 20.4185 20.0611 20.2121 20.5667 20.5859L20.7778 20.2232C20.1333 19.7154 18.9611 19.9944 18.9611 21.0603C18.9611 22.1652 20.2056 22.3884 20.7778 21.8973L20.5667 21.5346C20.0556 21.8973 19.4167 21.6797 19.4167 21.0547ZM23.1222 20.0335H22.6667V20.279C22.2056 19.6652 21.0056 20.0112 21.0056 21.0547C21.0056 22.1261 22.25 22.433 22.6667 21.8304V22.0871H23.1222V20.0335ZM24.9944 20.0335C24.8611 19.9665 24.3833 19.8717 24.15 20.279V20.0335H23.7111V22.0815H24.15V20.9263C24.15 20.3125 24.65 20.3516 24.8611 20.4576L24.9944 20.0335ZM27.2333 19.202H26.7944V20.279C26.3389 19.6708 25.1333 19.9944 25.1333 21.0547C25.1333 22.1373 26.3833 22.4275 26.7944 21.8304V22.0871H27.2333V19.202ZM27.6556 15.0112V15.2679H27.7V15.0112H27.8056V14.9665H27.55V15.0112H27.6556ZM28.0222 21.9196C28.0222 21.8917 28.0222 21.8583 28.0056 21.8304C27.9889 21.8136 27.9778 21.7857 27.9611 21.769C27.9444 21.7522 27.9167 21.7411 27.9 21.7243C27.8722 21.7243 27.8389 21.7076 27.8111 21.7076C27.7944 21.7076 27.7667 21.7243 27.7333 21.7243C27.7056 21.7411 27.6889 21.7522 27.6722 21.769C27.6444 21.7857 27.6278 21.8136 27.6278 21.8304C27.6111 21.8583 27.6111 21.8917 27.6111 21.9196C27.6111 21.9364 27.6111 21.9643 27.6278 21.9978C27.6278 22.0145 27.6444 22.0424 27.6722 22.0592C27.6889 22.0759 27.7 22.0871 27.7333 22.1038C27.7611 22.1205 27.7944 22.1205 27.8111 22.1205C27.8389 22.1205 27.8722 22.1205 27.9 22.1038C27.9167 22.0871 27.9444 22.0759 27.9611 22.0592C27.9778 22.0424 27.9889 22.0145 28.0056 21.9978C28.0222 21.9643 28.0222 21.9364 28.0222 21.9196ZM28.2 14.9609H28.1222L28.0333 15.1562L27.9444 14.9609H27.8667V15.2623H27.9111V15.0335L28 15.2288H28.0611L28.1389 15.0335V15.2623H28.2V14.9609ZM28.4444 10.4688C28.4444 6.21652 24.9944 2.75112 20.75 2.75112C19.2389 2.75112 17.7556 3.20871 16.5 4.04018C20.5056 7.34933 20.5667 13.6105 16.5 16.9029C17.7556 17.74 19.25 18.192 20.75 18.192C24.9944 18.1975 28.4444 14.7377 28.4444 10.4688Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- ASSINATURA -->
+                <div class="signature">
+                    <div class="powered">
+                        Powered by
+                        <img src="https://i.postimg.cc/KzpxRNbV/logo-vtex.png" alt="">
+                    </div>
+                    <div class="developed">
+                        Developed by
+                        <img src="https://i.postimg.cc/5t1xGypP/logo-maestra-footer.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </footer>
+
+    <div id="popup">
+        <div class="popup__modal">
+            <div class="popup__image">
+                <img src="https://i.postimg.cc/j5Rqm2qx/background-newsletter-popup.png" alt="">
+            </div>
+            <div class="popup__content">
+                <svg width="28" height="30" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M4.66659 5.14331H23.3333C24.6166 5.14331 25.6666 6.25558 25.6666 7.61501V22.4452C25.6666 23.8047 24.6166 24.9169 23.3333 24.9169H4.66659C3.38325 24.9169 2.33325 23.8047 2.33325 22.4452V7.61501C2.33325 6.25558 3.38325 5.14331 4.66659 5.14331Z"
+                        stroke="#231F20" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M25.6666 7.61499L13.9999 16.266L2.33325 7.61499" stroke="#231F20" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>Bem Vindo à MAEZTRA</span>
+                <p>Receba em Primeira mão <br />
+                    <strong>desconto e ofertas exclusivas</strong></p>
+
+                <form action="" class="popup__form">
+                    <input type="text" placeholder="Digite seu e-mail">
+                    <button type="submit">
+                        <span>
+                            ENVIAR
+                            <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.3125 0.64064C11.5703 0.500015 11.8516 0.476578 12.1328 0.54689C12.4141 0.617203 12.625 0.757828 12.7891 0.992203C12.9531 1.22658 13.0234 1.50783 12.9766 1.78908L11.5938 10.8828C11.5234 11.2578 11.3359 11.5156 11.0312 11.6797C10.8438 11.7735 10.6797 11.8203 10.4922 11.8203C10.3281 11.8203 10.1875 11.7969 10.0469 11.75L7.42188 10.6485L6.41406 12.0547C6.17969 12.336 5.92188 12.4766 5.59375 12.5C5.26562 12.5235 4.98438 12.4297 4.75 12.2188C4.49219 12.0078 4.375 11.7266 4.375 11.375V9.40627L1.70312 8.28127C1.42188 8.18752 1.21094 8.00002 1.09375 7.71877C0.976562 7.46095 0.953125 7.20314 1.04688 6.92189C1.11719 6.64064 1.28125 6.4297 1.5625 6.26564L11.3125 0.64064ZM5.5 11.375L6.36719 10.2031L5.5 9.85158V11.375ZM10.4922 10.6953L11.875 1.62502L2.125 7.25002L4.65625 8.3047L9.60156 3.96877C9.69531 3.87502 9.8125 3.85158 9.95312 3.89845C10.0703 3.94533 10.1641 4.01564 10.2109 4.13283C10.2578 4.25002 10.2344 4.3672 10.1641 4.46095L6.88281 9.21877L10.4922 10.6953Z"
+                                    fill="white" />
+                            </svg>
+
+                        </span>
+                    </button>
+                </form>
+            </div>
+            <div class="popup__close">
+                <span>
+                    FECHAR
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

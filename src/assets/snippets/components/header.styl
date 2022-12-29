@@ -1,0 +1,87 @@
+header#header
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+
+  .topbar
+    height: 24px;
+    background: #353535;
+
+    p
+      color: #ffffff;
+      text-align: center;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 24px;
+
+  .header
+    position: relative;
+    z-index: 9;
+    padding: 25px 0;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+
+    @media $grid
+      padding: 25px 15px;
+
+    h1
+      display: flex;
+      flex-shrink: 0;
+
+      @media mobile
+        max-width: 110px;
+
+    &__container
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 1600px;
+      gap: 20px;
+
+    &__right
+      display: flex;
+      flex-shrink: 0;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+
+      > div
+        > a
+          display: flex;
+          align-items: center;
+          color: #353535;
+          font-size: 14px;
+          gap: 5px;
+
+      .header__wishlist, .header__account
+        @media mobile
+          display: none;
+
+    &__minicart
+      padding: 10px 15px;
+      border: 1px solid $yellow;
+      border-radius: 8px;
+
+      @media desktop
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        svg
+          max-width: 15px;
+          max-height: 16px;
+
+      @media mobile
+        padding: 0;
+        border: none;
+        font-size: 0;
+
+    .search__mobile
+      @media mobile
+        display: flex;
+
+      @media desktop
+        display: none;

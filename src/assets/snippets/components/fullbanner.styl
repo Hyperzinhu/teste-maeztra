@@ -1,0 +1,16 @@
+.fullbanner
+  &.desktop
+    @media mobile
+      display: none;
+
+  &.mobile
+    @media desktop
+      display: none;
+
+  &__wrapper
+    @extend $dots;
+    @extend $arrows;
+    margin-bottom: 25px;
+
+    img
+      width: 100%;

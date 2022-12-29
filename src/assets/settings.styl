@@ -1,0 +1,138 @@
+/**
+ *  Settings Global do CSS (Stylus)
+ *  - Essas Configurações são chamados em todos arquivos styles
+ *  - Não se deve inserir estruturas css, é permitido somente variaves e funções
+ */
+desktop = unquote("screen and (min-width: 992px)");
+mobile = unquote("screen and (max-width: 991px)");
+$grid = unquote("screen and (max-width: 1630px)");
+// Color
+$yellow = #FAA500;
+// transition
+transition = all 0.3s ease-in-out;
+
+body
+  &.on-popup, &.on-menu
+    overflow: hidden;
+
+.container
+  margin: 0 auto;
+  max-width: 1600px;
+  width: 100%;
+
+  @media $grid
+    padding: 0 15px;
+
+// slick arrows
+$arrows
+  .slick-slider
+    position: relative;
+    margin-bottom: 0 !important;
+
+  .slick-list
+    flex: 1 1 auto;
+
+  .slick-arrow
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    min-height: 40px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    font-size: 0;
+    cursor: pointer;
+    transition: $transition;
+    transform: translateY(-50%);
+
+    &:before
+      content: none;
+
+    &.slick-disabled
+      filter: none !important;
+      opacity: 0.6 !important;
+      cursor: default;
+
+    &.slick-next
+      right: 10%;
+      z-index: 9;
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEZSURBVHgBrdY9roJAFAXggbsBC2igeW8HNiSWvB34VqCuwK2wA+lstTJW2kPBKqitaCjwDFHj3wBzuScZZrgzfJkJIYEUEsfxxPf9QxiGaRAEk7Isj4oZ0lhVVSeMZ7rgOM4M8A/QvWKEPM/b6k2+1adc1MWO5oa5ZRRFG2ULoiUd89Yo6ReA4/1iPDWssTo+6QsW76RQug+kUHq+kUDpvTAWpW/FMSgZHmCjRpCLdoIctBe0RR1lEXyGKbqFab5pmrmrhDMY7NsdkuZ5PuzIQ7Asy1Z60AvaYL2gLdYJcjAjyMW+gmOwD3As9gJKYA9QCtNxgSVSWAuiraWwO3iWwlqwrut/9IUE1oJFUVyA/uEfZ3erJVxM5wo8LL9HZhPy0QAAAABJRU5ErkJggg==") no-repeat center !important;
+
+      @media mobile
+        filter: brightness(0);
+
+      @media dekstop
+        &:not(.slick-disabled):hover
+          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEZSURBVHgBrdY9roJAFAXggbsBC2igeW8HNiSWvB34VqCuwK2wA+lstTJW2kPBKqitaCjwDFHj3wBzuScZZrgzfJkJIYEUEsfxxPf9QxiGaRAEk7Isj4oZ0lhVVSeMZ7rgOM4M8A/QvWKEPM/b6k2+1adc1MWO5oa5ZRRFG2ULoiUd89Yo6ReA4/1iPDWssTo+6QsW76RQug+kUHq+kUDpvTAWpW/FMSgZHmCjRpCLdoIctBe0RR1lEXyGKbqFab5pmrmrhDMY7NsdkuZ5PuzIQ7Asy1Z60AvaYL2gLdYJcjAjyMW+gmOwD3As9gJKYA9QCtNxgSVSWAuiraWwO3iWwlqwrut/9IUE1oJFUVyA/uEfZ3erJVxM5wo8LL9HZhPy0QAAAABJRU5ErkJggg==") no-repeat center !important;
+
+    &.slick-prev
+      left: 10%;
+      z-index: 9;
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEVSURBVHgBrda7DYMwEAbgsytKRmCDhAKJlhGyQTZkBJQOiYYRGIGaZ+6IE0F4+Pz4JRSF4gME/n0CLJMkyR1/CiFEO8/zo6qqms4LsMgXwyNUp1o8MkKNwQMM1qgEg1xglHCaphsb1GCUZhzHF+uROVjf91ld140WNMHoj/CJXYI22Cloix2CLtgOdMU2oA/sB/rCFtAnRpFYP7kvbAGxy84wwItBEARgEiqHDD7VswteLMIGKdI0jYAZ1kvBO22klFlZlg0L9Ikafdgc1Hjp6VCrcrhCrevrDHUq2CPUeQv4R71sUmuUvdFz0K7rYqPJQYfiMn16G0Vw3bfDMMRGowhFTVmbQlEYb6PX3GlO9aewZZx7A4MW7jpWv9uPAAAAAElFTkSuQmCC") no-repeat center !important;
+
+      @media mobile
+        filter: brightness(0);
+
+      @media dekstop
+        &:not(.slick-disabled):hover
+          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEVSURBVHgBrda7DYMwEAbgsytKRmCDhAKJlhGyQTZkBJQOiYYRGIGaZ+6IE0F4+Pz4JRSF4gME/n0CLJMkyR1/CiFEO8/zo6qqms4LsMgXwyNUp1o8MkKNwQMM1qgEg1xglHCaphsb1GCUZhzHF+uROVjf91ld140WNMHoj/CJXYI22Cloix2CLtgOdMU2oA/sB/rCFtAnRpFYP7kvbAGxy84wwItBEARgEiqHDD7VswteLMIGKdI0jYAZ1kvBO22klFlZlg0L9Ikafdgc1Hjp6VCrcrhCrevrDHUq2CPUeQv4R71sUmuUvdFz0K7rYqPJQYfiMn16G0Vw3bfDMMRGowhFTVmbQlEYb6PX3GlO9aewZZx7A4MW7jpWv9uPAAAAAElFTkSuQmCC") no-repeat center !important;
+
+// slick dots
+$dots
+  .slick-dots
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    display: flex !important;
+    justify-content: center;
+    background: none;
+    transform: translateX(-50%);
+
+    > li
+      display: block;
+      margin: 0 6px;
+      width: auto;
+      height: auto;
+
+      button
+        position: static;
+        display: block;
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $yellow;
+        border-radius: 50%;
+        background: transparent;
+        content: "";
+        font-size: 0;
+        opacity: 1;
+        transition: $transition;
+
+        @media mobile
+          width: 8px;
+          height: 8px;
+
+      &.slick-active
+        button
+          background: $yellow;
+
+/* width */
+::-webkit-scrollbar
+  width: 5px;
+
+/* Track */
+::-webkit-scrollbar-track
+  background: #fafafa;
+
+/* Handle */
+::-webkit-scrollbar-thumb
+  background: #353535;
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+  background: $yellow;
+
+main
+  @media desktop
+    background: #FAFAFA;

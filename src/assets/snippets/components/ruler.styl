@@ -1,0 +1,58 @@
+.ruler
+  margin-bottom: 75px;
+
+  @media mobile
+    margin: 0 -15px 40px;
+
+  &__title
+    margin-bottom: 20px;
+    color: #353535;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+  &__list
+    &:not(.slick-initialized)
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .ruler__item
+        width: 100%;
+
+    &.slick-initialized
+      @media mobile
+        .slick-list
+          padding-right: 15px;
+          padding-left: 30px;
+
+  &__item
+    display: flex !important;
+    align-items: center;
+    padding-left: 25px;
+    height: 64px;
+    border-radius: 4px;
+    background: #EFEFEF;
+
+    &:not(:last-child)
+      margin-right: 15px;
+
+    .ruler__image
+      display: flex;
+
+    &--wrapper
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      p
+        color: #353535;
+        font-size: 14px;
+        line-height: 21px;
+
+      strong
+        display: block;
+
+      span
+        font-size: 12px;

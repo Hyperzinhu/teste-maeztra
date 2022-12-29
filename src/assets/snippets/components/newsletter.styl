@@ -1,0 +1,64 @@
+.newsletter
+  padding: 40px 0;
+  border-block: 2px solid #EFEFEF;
+
+  @media mobile
+    background: #FAFAFA
+
+  @media $grid
+    padding: 40px 15px;
+
+  &__container
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1070px;
+    width: 100%;
+
+    @media mobile
+      flex-direction: column;
+
+  &__label
+    color: #000000;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 37px;
+
+    @media mobile
+      margin-bottom: 10px;
+
+  &__form
+    position: relative;
+    max-width: 630px;
+    width: 100%;
+
+    @media mobile
+      display: flex;
+      gap: 15px;
+
+    input
+      width: 100%;
+      border-radius: 4px;
+
+      @media mobile
+        height: 25px;
+
+    button
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 130px;
+      height: 100%;
+      border: 1px solid $yellow;
+      border-radius: 4px;
+      background-color: $yellow;
+      cursor: pointer;
+
+      @media mobile
+        position: static;
+
+      span
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 16px;

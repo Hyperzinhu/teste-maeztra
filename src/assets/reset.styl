@@ -1,0 +1,88 @@
+// ******************************************************************
+// Site Name: Base Desenvolvimento
+// Author: Guilherme José Pessato
+// 
+
+// Stylesheet: Resets Default CSS
+// ******************************************************************/
+*
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+
+    &:focus
+        outline: none !important;
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
+
+html, body
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Titillium Web", sans-serif;
+
+html
+    border: none;
+    font-size: 100%;
+
+body
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+
+article, aside, dialog, figure, footer, header, hgroup, nav, section
+    display: block;
+
+table
+    border-spacing: 0;
+    border-collapse: separate;
+
+caption, th, td
+    float: none !important;
+    text-align: left;
+    font-weight: normal;
+
+table, th, td
+    vertical-align: middle;
+
+blockquote before, blockquote after, q before, q after
+    content: "";
+
+a img
+    border: none;
+
+a
+    text-decoration: none;
+
+img
+    max-width: 100%;
+    height: auto;
+
+ul
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+input, textarea, button, select
+    outline: none;
+    box-shadow: none;
+
+&::placeholder
+    &::focus
+        color: transparent;
+
+.banner-js
+    margin: 0;
+
+main, footer
+    overflow: hidden;
+    max-width: 100%;

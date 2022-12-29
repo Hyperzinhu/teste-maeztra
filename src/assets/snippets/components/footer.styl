@@ -1,0 +1,70 @@
+footer#footer
+  background: #FAFAFA;
+
+  @media mobile
+    background: none;
+
+  .footer
+    padding: 40px 0 65px;
+
+    @media $grid
+      padding: 40px 15px 65px;
+
+    @media mobile
+      padding: 40px 30px 60px;
+
+    &__container
+      margin: 0 auto;
+      max-width: 1070px;
+      width: 100%;
+
+    &__wrapper
+      display: flex;
+      justify-content: space-between;
+
+      @media mobile
+        flex-direction: column;
+
+    &__title
+      margin-bottom: 25px;
+      color: #353535;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 18px;
+      cursor: default;
+
+      @media mobile
+        display: flex;
+        justify-content: space-between;
+
+        &:after
+          content: "+";
+
+        &.open
+          &:after
+            content: "-";
+
+    &__item
+      display: flex;
+      flex-direction: column;
+
+      @media mobile
+        display: none;
+
+      > a
+        display: block;
+        color: #000000;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        transition: all ease-in-out 0.2s;
+
+        @media mobile
+          margin-bottom: 25px;
+
+        &:hover
+          color: $yellow;
+
+        @media desktop
+          &:not(:last-child)
+            margin-bottom: 25px;
