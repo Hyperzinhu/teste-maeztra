@@ -1,6 +1,8 @@
-# Base de desenvolimento - STYLUS/JS
+# TESTE DE DESENVOLVIMENTO MAEZTRA
 
-Base para auxiliar no desenvolvimento web.
+Teste realizado utilizando as liguages: HTML, CSS, JS e STYLUS
+
+Para rodar o projeto será necessário:
 
 ***Necessario:***
 - Node
