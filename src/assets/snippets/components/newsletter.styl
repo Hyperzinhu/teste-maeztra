@@ -3,7 +3,7 @@
   border-block: 2px solid #EFEFEF;
 
   @media mobile
-    background: #FAFAFA
+    background: #FAFAFA;
 
   @media $grid
     padding: 40px 15px;
@@ -54,6 +54,14 @@
       border-radius: 4px;
       background-color: $yellow;
       cursor: pointer;
+      transition: $transition;
+
+      @media desktop
+        &:hover
+          background-color: transparent;
+
+          span
+            color: $yellow;
 
       @media mobile
         position: static;
@@ -62,3 +70,4 @@
         color: #ffffff;
         font-weight: 700;
         font-size: 16px;
+        transition: $transition;

@@ -9,7 +9,7 @@ $grid = unquote("screen and (max-width: 1630px)");
 // Color
 $yellow = #FAA500;
 // transition
-transition = all 0.3s ease-in-out;
+$transition = all 0.3s ease-in-out;
 
 body
   &.on-popup, &.on-menu
@@ -57,6 +57,7 @@ $arrows
     &.slick-next
       right: 10%;
       z-index: 9;
+      display: flex;
       background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEZSURBVHgBrdY9roJAFAXggbsBC2igeW8HNiSWvB34VqCuwK2wA+lstTJW2kPBKqitaCjwDFHj3wBzuScZZrgzfJkJIYEUEsfxxPf9QxiGaRAEk7Isj4oZ0lhVVSeMZ7rgOM4M8A/QvWKEPM/b6k2+1adc1MWO5oa5ZRRFG2ULoiUd89Yo6ReA4/1iPDWssTo+6QsW76RQug+kUHq+kUDpvTAWpW/FMSgZHmCjRpCLdoIctBe0RR1lEXyGKbqFab5pmrmrhDMY7NsdkuZ5PuzIQ7Asy1Z60AvaYL2gLdYJcjAjyMW+gmOwD3As9gJKYA9QCtNxgSVSWAuiraWwO3iWwlqwrut/9IUE1oJFUVyA/uEfZ3erJVxM5wo8LL9HZhPy0QAAAABJRU5ErkJggg==") no-repeat center !important;
 
       @media mobile
@@ -64,7 +65,7 @@ $arrows
 
       @media dekstop
         &:not(.slick-disabled):hover
-          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEZSURBVHgBrdY9roJAFAXggbsBC2igeW8HNiSWvB34VqCuwK2wA+lstTJW2kPBKqitaCjwDFHj3wBzuScZZrgzfJkJIYEUEsfxxPf9QxiGaRAEk7Isj4oZ0lhVVSeMZ7rgOM4M8A/QvWKEPM/b6k2+1adc1MWO5oa5ZRRFG2ULoiUd89Yo6ReA4/1iPDWssTo+6QsW76RQug+kUHq+kUDpvTAWpW/FMSgZHmCjRpCLdoIctBe0RR1lEXyGKbqFab5pmrmrhDMY7NsdkuZ5PuzIQ7Asy1Z60AvaYL2gLdYJcjAjyMW+gmOwD3As9gJKYA9QCtNxgSVSWAuiraWwO3iWwlqwrut/9IUE1oJFUVyA/uEfZ3erJVxM5wo8LL9HZhPy0QAAAABJRU5ErkJggg==") no-repeat center !important;
+          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAABHNCSVQICAgIfAhkiAAAAVtJREFUSEvFls9Kw0AQxr8Rd5HWZ/LmQYTakxb/HnwJj76FeKpiShUrCiLiyQfRq30A8ZSg4ySaldLsdjfZ4p6S3cyPbzKzM0OQxfdoZe84kcc1Bs61whFt4jM/C13EfSxlGk9iuFIaM2OkNXp1oJQmuARha0oJY6g09kKhOfBDgO1K1xhX6hXbdIwvX9ftCo3/SAR64AslPoXKlvEg9qsOFQP1gn0fKBVRjggtgDGhBhgLOgGMAZ0CNoVWAkto2sYtEdZDom8FFtBnLKZvuAuBOoF1oDOBBjrGSD7ecLh/oXck+X3vaOH+GNdi0LXZLBA6/wP8Dc6NBKdj9YiR6F0pd7NcDo20O22kaITmojOx65S1+V+9prVxfuWrqbIyW+K3gFjKjMJ0gKG89Fw3IKiNOhs94N0+/xTaR5GgBm+AVcOSHAYrm4zyzzj3KJv5BHYmU8Khz5RQ9d+/AaMo3v/86tbnAAAAAElFTkSuQmCC") no-repeat center !important;
 
     &.slick-prev
       left: 10%;
@@ -76,7 +77,7 @@ $arrows
 
       @media dekstop
         &:not(.slick-disabled):hover
-          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEVSURBVHgBrda7DYMwEAbgsytKRmCDhAKJlhGyQTZkBJQOiYYRGIGaZ+6IE0F4+Pz4JRSF4gME/n0CLJMkyR1/CiFEO8/zo6qqms4LsMgXwyNUp1o8MkKNwQMM1qgEg1xglHCaphsb1GCUZhzHF+uROVjf91ld140WNMHoj/CJXYI22Cloix2CLtgOdMU2oA/sB/rCFtAnRpFYP7kvbAGxy84wwItBEARgEiqHDD7VswteLMIGKdI0jYAZ1kvBO22klFlZlg0L9Ikafdgc1Hjp6VCrcrhCrevrDHUq2CPUeQv4R71sUmuUvdFz0K7rYqPJQYfiMn16G0Vw3bfDMMRGowhFTVmbQlEYb6PX3GlO9aewZZx7A4MW7jpWv9uPAAAAAElFTkSuQmCC") no-repeat center !important;
+          background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAABHNCSVQICAgIfAhkiAAAAWhJREFUSEu91ktOwzAQBuDfICecgTOAxAVQaSsQC05QWrgCJ+EULfsWyrrdsQQhjsC6wAIJReowtpJQSPyW6CKqlPjT2DMeWyDyV9ygR2tcQ4CEwJUcYKkoEeOV2JxH7+jxhE9+9rMhHoLBYow+AXc19hPRu9zCfhDIkR0T4ZaN3DCzS2/QElll+0fYWLO/4RE+eAk62TkenRGGYM4sh2JWMAYzgrFYK5iCNcBU7BfoxIAVD+ip0rBtV102PhgJHOYDvLj2vigm6PJ2um/Zm9XYFb/v5EM8uzA95a8JXjnM3daPCW/cSY6yEZ58MDfI6xYSnQb1pheYWzqIVzKqGXgnxSfDYWWz0VGcZVN94CwfD7TRvlLR1n6YghobbCxq7dgx6P8eATHZd0ZYo2OclAe8NNShOkYPvMGyzZ3yfWbGncmEXgSBVpSLXm5jLxisUcKU/2d6+imXpY1EqXvOlLG1IJzJERbq3Tf8/OopZ+v8+AAAAABJRU5ErkJggg==") no-repeat center !important;
 
 // slick dots
 $dots

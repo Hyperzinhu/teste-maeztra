@@ -150,6 +150,13 @@ if ($(".showcase__wrapper").not('.slick-initialized')) {
   })
 }
 
+$(".spot__variant--list > li:first-child").addClass("selected")
+
+$(".spot__variant--item").on("click", function () {
+  $(this).addClass("selected").siblings().removeClass("selected")
+})
+
+
 // Adicionando as variantes na vitrine automaticamente
 $.each($(".spot"), function (indexInArray, valueOfElement) {
   $.each($(this).find(".spot__variant--item"), function (indexInArray, valueOfElement) {
