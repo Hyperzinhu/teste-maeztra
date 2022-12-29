@@ -1,5 +1,5 @@
 .showcase
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 
   &__title
     margin-bottom: 25px;
@@ -42,8 +42,16 @@
         margin-right: 15px;
 
   .spot
+    padding-bottom: 15px;
+    border-radius: 4px;
+    transition: $transition;
+
     @media desktop
+      margin: 10px 0;
       max-width: 310px;
+
+      &:hover
+        box-shadow: 0 4px 6px rgba(#000000, 16%);
 
     &__image
       margin-bottom: 10px;
@@ -70,6 +78,11 @@
         width: 25px;
         height: 25px;
         border-radius: 4px;
+        cursor: pointer;
+        transition: $transition;
+
+        &.selected, &:hover
+          border: 1px solid #353535;
 
     &__price
       color: #353535;
@@ -84,6 +97,11 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
+      transition: $transition;
+
+      @media desktop
+        &:hover
+          color: $yellow;
 
     &__subtitle
       margin-bottom: 10px;
@@ -96,11 +114,23 @@
       width: 100%;
       height: 35px;
       border: none;
+      border: 1px solid transparent;
       border-radius: 4px;
-      background: #FAA500;
+      background-color: #FAA500;
+      cursor: pointer;
+      transition: $transition;
+
+      @media desktop
+        &:hover
+          border-color: $yellow;
+          background-color: transparent;
+
+          span
+            color: $yellow;
 
       span
         color: #ffffff;
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
+        transition: $transition;

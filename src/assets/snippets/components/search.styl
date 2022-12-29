@@ -1,7 +1,7 @@
 #search
   position: relative;
   display: flex;
-  width: 790px;
+  max-width: 790px;
 
   input
     padding: 0 25px;
@@ -22,8 +22,19 @@
     width: 120px;
     height: 40px;
     border: none;
+    border: 1px solid transparent;
     border-radius: 8px;
     background: #FAA500;
+    cursor: pointer;
+    transition: $transition;
+
+    @media desktop
+      &:hover
+        border-color: $yellow;
+        background: #ffffff;
+
+        span
+          color: $yellow;
 
     @media mobile
       top: 50%;
@@ -36,12 +47,15 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 21px;
+      transition: $transition;
 
       @media mobile
         color: $yellow;
         font-size: 20px;
 
 .search
+  width: 100%;
+
   @media mobile
     position: fixed;
     top: 0;
@@ -49,7 +63,7 @@
     width: 100%;
     height: 100vh;
     background: rgba(#000000, 70%);
-    transition: all ease-in-out 0.2s;
+    transition: $transition;
     transform: translateY(-100%);
 
     .on-search &

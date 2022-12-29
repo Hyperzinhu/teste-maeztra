@@ -54,30 +54,81 @@ header#header
           align-items: center;
           color: #353535;
           font-size: 14px;
+          transition: all 0.2s;
           gap: 5px;
+
+          svg path
+            transition: all 0.2s;
+
+        @media desktop
+          &:hover
+            > a
+              color: $yellow;
+
+              svg path
+                fill: $yellow;
 
       .header__wishlist, .header__account
         @media mobile
           display: none;
 
+    &__wishlist
+      .wishlist
+        &__icons
+          position: relative;
+
+        &__icon
+          transition: $transition;
+
+          &.hover
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            opacity: 0;
+
+      &:hover
+        .wishlist
+          &__icon
+            visibility: hidden;
+            opacity: 0;
+
+            &.hover
+              visibility: visible;
+              opacity: 1;
+
     &__minicart
       padding: 10px 15px;
       border: 1px solid $yellow;
       border-radius: 8px;
+      cursor: pointer;
 
       @media desktop
         display: flex;
         align-items: center;
+        transition: $transition;
         gap: 5px;
 
         svg
           max-width: 15px;
           max-height: 16px;
+          transition: $transition;
+
+        &:hover
+          background: $yellow;
+
+          > a
+            color: #ffffff !important;
+
+            svg path
+              fill: #ffffff !important;
 
       @media mobile
         padding: 0;
         border: none;
-        font-size: 0;
+
+        > a
+          font-size: 0 !important;
 
     .search__mobile
       @media mobile
